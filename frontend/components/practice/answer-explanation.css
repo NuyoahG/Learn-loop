@@ -1,0 +1,7 @@
+.answer-explanation { margin-top: 14px; padding: 14px; border: 1px solid var(--ll-line); border-radius: 10px; background: #f3f9f5; }
+.answer-explanation h3 { margin: 0 0 6px; font-size: 1rem; }
+.answer-explanation p { margin: 0 0 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.answer-explanation > button.secondary { min-height: 36px; background: #fff; border-color: var(--ll-control-border); color: var(--ll-accent-dark); }
+.answer-explanation > button.secondary:hover { background: var(--ll-selected); }
+.answer-explanation-detail { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--ll-line); }
+.answer-explanation .answer-explanation-error { color: #a33c36; margin-top: 8px; }

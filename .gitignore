@@ -1,0 +1,54 @@
+# LearnLoop 仓库根。保留源代码，排除个人环境和运行数据。
+# 上层 src 是创建 Spring Boot 前的旧练习，仍保留在电脑上，不属于有效后端工程。
+/src/
+/.idea/
+**/.idea/
+/*.iml
+*.iws
+*.ipr
+.vscode/
+/.claude/
+
+# 用户资料原件、数据库备份、生成样例和本机验收证据不属于源代码。
+/data/
+/backups/
+/backend/run/
+/ai-service/run/
+/backend/target/
+/frontend/node_modules/
+/frontend/.next/
+/frontend/test-results/
+/frontend/playwright-report/
+/frontend/blob-report/
+*.log
+*.dump
+*.sql.gz
+*.sql.zip
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.credential.xml
+*.private.json
+
+# 配置样例可提交；真实环境变量文件和密钥不提交。
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# CodeGraph 索引由本机生成，不属于源代码。
+/.codegraph/
+
+# 后续 Python 服务也使用独立环境。
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

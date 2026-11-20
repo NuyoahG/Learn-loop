@@ -1,0 +1,38 @@
+.notes-heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-bottom: 12px;
+}
+.notes-heading h1 { margin: 0; }
+.notes-heading .journal-search { flex: 0 1 24rem; min-width: 0; }
+.notes-heading .journal-search :is(input, button) { padding-block: 6px; }
+.notes-table { table-layout: fixed; }
+.notes-table .notes-row { cursor: pointer; }
+.notes-table .notes-row:hover, .notes-table .notes-row[data-selected="true"] { background: #e6f4ec; }
+.notes-row td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.notes-row td:first-child { padding: 0; }
+.notes-row td button.secondary {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px;
+    border: 0;
+    background: transparent;
+    font-weight: 600;
+    text-align: left;
+}
+.notes-table td button:focus-visible { outline-offset: -3px; }
+.notes-table .notes-detail-row > td { padding: 6px 0; }
+.notes-detail { padding: 16px; }
+.notes-detail blockquote {
+    margin: 8px 0;
+    padding: 8px 10px;
+    border-left: 3px solid var(--ll-control-border);
+    background: var(--ll-bg);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}

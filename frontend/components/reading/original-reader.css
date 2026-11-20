@@ -1,0 +1,124 @@
+.original-reader .reader-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    align-items: center;
+    gap: 4px 10px;
+    border-radius: 12px;
+}
+.original-reader .reader-hero > div { min-width: 0; }
+.original-reader .reader-hero h1 { margin: 2px 0 0; font-size: 1rem; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.original-reader .reader-back { margin-bottom: 0; padding: 2px 5px; font-size: .78rem; }
+.original-reader .original-toolbar { margin: 0; gap: 5px; }
+.original-reader .original-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.original-reader .original-layout[data-ai-open="true"] { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
+.original-document, .pdf-ai-pane { min-width: 0; }
+.pdf-ai-pane { height: max(65dvh, calc(100dvh - 185px)); }
+.pdf-ai-pane[hidden] { display: none; }
+
+.original-toolbar > :is(button.secondary, a.ll-action-link) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 69px;
+    block-size: 29px;
+    min-block-size: 29px;
+    padding: 0 4px;
+    border: 1px solid var(--ll-control-border);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+    color: var(--ll-accent-dark);
+    font-family: inherit;
+    font-size: .8rem;
+    font-weight: 650;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.original-toolbar > :is(button.secondary, a.ll-action-link):hover,
+.original-toolbar > button.secondary[aria-expanded="true"] { background: var(--ll-selected); }
+
+.outline-list {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.outline-list .outline-list {
+    margin: 4px 0 0 9px;
+    padding-inline-start: 7px;
+    border-inline-start: 1px solid var(--ll-line);
+}
+.outline-row { display: flex; align-items: stretch; gap: 4px; }
+.outline-row > .outline-entry { min-width: 0; }
+.outline-chevron { margin-inline-end: 5px; }
+.outline-row > .outline-jump { flex: 0 0 34px; padding-inline: 4px; }
+
+.pdf-question {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+/* 标题栏与滚动内容分离，长回答滚动时“收起”始终留在面板顶部。 */
+.pdf-question > .journal-heading { flex: 0 0 auto; flex-wrap: nowrap; gap: 6px; margin: 0; padding: 6px 8px; border-bottom: 1px solid var(--ll-line); }
+.pdf-question .journal-heading h2 { margin: 0; font-size: 1rem; }
+.pdf-question > .journal-heading button.secondary { inline-size: 44px; block-size: 29px; min-block-size: 29px; padding: 0 4px; font-size: .8rem; line-height: 1.3; }
+.pdf-question-content { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 8px; }
+.pdf-question .journal-actions { gap: 6px; }
+.pdf-question .journal-actions > :is(button, a) { font-size: .82rem; }
+.pdf-question blockquote {
+    margin: 8px 0 12px;
+    padding: 8px 10px;
+    max-height: 7rem;
+    overflow: auto;
+    border-left: 3px solid #87b7a4;
+    background: #eef7f2;
+    white-space: pre-wrap;
+}
+
+.pdf-zoom {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--ll-line);
+    background: #f6faf8;
+}
+.pdf-zoom button.secondary { min-width: 32px; padding: 3px 9px; font-size: .85rem; }
+.pdf-zoom output { min-width: 5ch; text-align: center; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.pdf-original .pdf-scroll { top: 44px; }
+/* PDF.js 按内容区尺寸计算页框；不能让网站全局 border-box 把页边框算进画布宽度。 */
+.pdf-original .pdfViewer .page { box-sizing: content-box; }
+/* Edge 114 不支持 PDF.js 中以 canvas 类型选择器开头的嵌套规则。
+   高分屏的 canvas.width/height 是渲染像素，必须按页框的 CSS 尺寸显示，避免两倍画布被裁成半页。 */
+.pdf-original .pdfViewer .canvasWrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    contain: content;
+}
+.pdf-question-label, .pdf-question-presets { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.pdf-question-label { justify-content: space-between; margin-bottom: 4px; }
+.pdf-question-presets button.secondary { padding: 2px 6px; border-radius: 6px; font-size: .75rem; }
+
+@media (max-width: 760px) {
+    .original-reader .reader-hero { grid-template-columns: minmax(0, 1fr); }
+    .original-reader .original-toolbar { justify-self: start; }
+    .original-reader .original-layout[data-ai-open="true"] { grid-template-columns: minmax(0, 1fr); }
+    .pdf-ai-pane { position: absolute; right: 0; top: 0; z-index: 15; width: min(365px, 100%); }
+    /* 窄屏同时编辑笔记和查看回答时，让两个面板都可操作。 */
+    .original-layout:has(.pdf-annotation-editor) .pdf-ai-pane { position: static; width: 100%; }
+    .pdf-question { box-shadow: -8px 0 24px #213a3126; }
+}
+#protectedContent:has(.original-reader) { padding: 8px clamp(8px, 1.2vw, 16px); }

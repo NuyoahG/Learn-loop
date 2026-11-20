@@ -1,0 +1,17 @@
+# 直接运行依赖；requirements.lock 会在独立环境通过测试后记录全部传递依赖。
+fastapi==0.143.1
+pydantic==2.14.1
+uvicorn==0.54.0
+python-multipart==0.0.32
+python-docx==1.2.0
+pypdf==6.21.2
+# BKT 单步适配器明确绑定真实库；FSRS 复用准备阶段已验证版本，后续接口另行开发。
+pyBKT==1.4.3
+fsrs==6.3.2
+# pyBKT 1.4.3 依赖 sklearn 内部 API，升级必须重跑兼容性及原解析回归。
+scikit-learn==1.7.2
+
+# 兼容 Chat Completions 模型调用；禁用出题时不会导入。
+httpx==0.28.1
+# 猫咪老师的只读工具循环，计划与确认状态由 Java/MySQL 保存。
+langgraph==1.2.20

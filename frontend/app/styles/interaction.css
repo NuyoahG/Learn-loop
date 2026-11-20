@@ -1,0 +1,120 @@
+/* LearnLoop 的表单采用固定浅色外观，系统深色模式不会改变原生控件底色。 */
+:root {
+    color-scheme: light;
+    --ll-selected: #dcefe4;
+    --ll-control-border: #a6bfb3;
+    --ll-control-hover: #edf7f1;
+}
+
+:where(input:not([type="radio"], [type="checkbox"], [type="file"], [type="hidden"]), select, textarea) {
+    color: var(--ll-ink);
+    background-color: #fff;
+    border: 1px solid var(--ll-control-border);
+    border-radius: 8px;
+    font: inherit;
+    max-inline-size: 100%;
+}
+
+:where(select, textarea):focus-visible, a:focus-visible,
+input[type="radio"]:focus-visible, input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--ll-accent);
+    outline-offset: 3px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--ll-accent);
+    flex: 0 0 auto;
+}
+input[type="radio"] {
+    appearance: none;
+    inline-size: 1em;
+    block-size: 1em;
+    margin: 0;
+    border: 1px solid var(--ll-control-border);
+    border-radius: 50%;
+    background: #fff;
+    vertical-align: middle;
+}
+input[type="radio"]:checked {
+    border-color: var(--ll-accent);
+    background: radial-gradient(circle, var(--ll-accent) 0 42%, #fff 45%);
+}
+:is(input[type="radio"], input[type="checkbox"]):disabled { opacity: .55; }
+@media (forced-colors: active) {
+    input[type="radio"], input[type="radio"]:checked { appearance: auto; }
+}
+
+:is(.workspace-option-row, .workspace-range-modes, .reading-depth, .tutor-reasons) > label {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .28rem .65rem;
+    border: 1px solid var(--ll-line);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+}
+:is(.workspace-option-row, .workspace-range-modes, .reading-depth, .tutor-reasons) > label:hover {
+    border-color: var(--ll-control-border);
+}
+:is(.workspace-option-row, .workspace-range-modes, .reading-depth, .tutor-reasons) > label:has(input:checked),
+.workspace-answer-option:has(input:checked) {
+    color: var(--ll-accent-dark);
+    border-color: var(--ll-accent);
+    background: var(--ll-selected);
+}
+.workspace-answer-option { background: #fff; }
+
+a.ll-action-link, a.ll-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
+    color: var(--ll-accent-dark);
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+}
+a.ll-action-link {
+    min-block-size: 36px;
+    padding: .4rem .7rem;
+    border: 1px solid var(--ll-control-border);
+    border-radius: 8px;
+    background: #fff;
+}
+a.ll-inline-link {
+    padding: .18rem .45rem;
+    border-radius: 5px;
+    background: var(--ll-control-hover);
+}
+a.ll-action-link:hover, a.ll-inline-link:hover {
+    color: var(--ll-accent-dark);
+    border-color: var(--ll-accent);
+    background: var(--ll-selected);
+}
+
+.history-filters button[aria-pressed="false"],
+.history-sort-options button[aria-pressed="false"] {
+    color: var(--ll-accent-dark);
+    border-color: var(--ll-control-border);
+}
+.history-filters button[aria-pressed="true"],
+.history-sort-options button[aria-pressed="true"] {
+    color: var(--ll-accent-dark);
+    background: var(--ll-selected);
+    border-color: var(--ll-accent);
+}
+
+.workspace-materials li button[aria-pressed="true"],
+.workspace-questions li button[aria-pressed="true"],
+.workspace-batch[aria-pressed="true"],
+.workspace-block[data-selected="true"],
+.questions-card[aria-pressed="true"],
+.material-manage[aria-pressed="true"] {
+    color: var(--ll-accent-dark);
+    background: var(--ll-selected);
+    border-color: var(--ll-accent);
+    box-shadow: none;
+}

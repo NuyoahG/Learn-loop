@@ -1,0 +1,93 @@
+.pdf-mark-layer {
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+}
+.pdf-mark-paint {
+    position: absolute;
+    inset: 0;
+    /* 整页色块先合成，再统一半透明；父子选区矩形和多条批注重叠时只着色一次。 */
+    opacity: .36;
+    mix-blend-mode: multiply;
+}
+.pdf-mark-fill {
+    position: absolute;
+    border-radius: 2px;
+}
+.pdf-mark-fill[data-color="LEMON"], .pdf-note-marker[data-color="LEMON"] { background: #f6dc7d; }
+.pdf-mark-fill[data-color="MINT"], .pdf-note-marker[data-color="MINT"] { background: #9eddb7; }
+.pdf-mark-fill[data-color="SKY"], .pdf-note-marker[data-color="SKY"] { background: #a3d4f1; }
+.pdf-mark-fill[data-color="LILAC"], .pdf-note-marker[data-color="LILAC"] { background: #c9b3e9; }
+.pdf-mark-fill[data-color="PEACH"], .pdf-note-marker[data-color="PEACH"] { background: #efb9b2; }
+.pdf-mark-handle {
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-100%);
+    pointer-events: auto;
+}
+.pdf-note-marker {
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    margin-inline-end: 2px;
+    padding: 0;
+    border: 1px solid #456e5c;
+    border-radius: 3px;
+    font: 12px/1 system-ui, sans-serif;
+    color: #174d3b;
+    cursor: pointer;
+}
+.pdf-note-preview {
+    position: fixed;
+    z-index: 55;
+    width: min(280px, 60vw);
+    max-height: 160px;
+    padding: 9px 11px;
+    overflow: auto;
+    border-radius: 7px;
+    border: 1px solid var(--ll-control-border);
+    background: #f0f8f3;
+    box-shadow: 0 8px 24px #1f43362e;
+    color: var(--ll-ink);
+    font: 14px/1.5 system-ui, "Microsoft YaHei", sans-serif;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+.pdf-selection-menu {
+    position: fixed;
+    z-index: 50;
+    width: min(320px, calc(100vw - 16px));
+    padding: 8px 10px;
+    border: 1px solid var(--ll-control-border);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 8px 25px #183e342e;
+}
+.pdf-selection-menu .color-picker { margin: 0; }
+.pdf-selection-menu .journal-actions { margin-top: 7px; gap: 5px; }
+.pdf-selection-menu button { padding: 4px 9px; font-size: .85rem; }
+.pdf-selection-menu [role="status"] { margin: 6px 0 0; font-size: .85rem; }
+.pdf-annotation-editor {
+    position: absolute;
+    z-index: 15;
+    inset: 52px 8px auto auto;
+    width: min(360px, calc(100% - 16px));
+    max-height: calc(100% - 60px);
+    overflow: auto;
+    padding: 14px;
+    background: #f0f8f3;
+    box-shadow: 0 12px 34px #213a3140;
+}
+.pdf-annotation-editor .journal-heading h2 { margin: 0; font-size: 1.1rem; }
+.pdf-annotation-editor blockquote {
+    margin: 10px 0;
+    padding: 7px 9px;
+    max-height: 6rem;
+    overflow: auto;
+    border-inline-start: 3px solid #87b7a4;
+    background: #e4f1e9;
+    font-size: .9rem;
+}
+.pdf-annotation-editor textarea { width: 100%; margin-top: 4px; resize: vertical; }
+.pdf-annotation-status { position: absolute; z-index: 5; inset: 52px 8px auto auto; margin: 0; padding: 6px 10px; background: #f0f8f3; }

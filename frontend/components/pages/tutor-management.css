@@ -1,0 +1,8 @@
+.tutor-management { display: grid; gap: 12px; max-width: 60rem; margin: 0 auto; }
+.tutor-management > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.tutor-management h1, .tutor-management h2 { margin: 0; }
+.tutor-management h2 { font-size: 1.15rem; }
+.tutor-settings label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.tutor-lessons details { border-top: 1px solid var(--ll-line); margin-top: 12px; padding-top: 12px; }
+.tutor-lessons summary { cursor: pointer; font-weight: 650; overflow-wrap: anywhere; }
+.tutor-lesson-answer { white-space: pre-wrap; overflow-wrap: anywhere; }

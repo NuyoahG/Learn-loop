@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LearnLoop 前端入口</title>
+    <style>
+        body { margin: 0; font-family: system-ui, "Microsoft YaHei", sans-serif; background: #f4f6f8; color: #1f2933; }
+        main { max-width: 720px; margin: 12vh auto 0; padding: 32px; background: #fff; border: 1px solid #d9e2ec; border-radius: 8px; }
+        h1 { margin-top: 0; font-size: 1.6rem; }
+        p, li { line-height: 1.7; }
+        code { padding: 2px 6px; background: #eef2f6; border-radius: 4px; }
+        a { color: #0b69a3; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>LearnLoop</h1>
+    <p>主界面已迁移到 Next.js：<a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a></p>
+    <p>Spring 的 8080 现在只提供 API 与健康检查，旧业务页面已移除。</p>
+    <ul>
+        <li><a href="http://127.0.0.1:3000/workspace">学习工作台</a></li>
+        <li><a href="http://127.0.0.1:3000/questions">题目中心与练习</a></li>
+        <li><a href="http://127.0.0.1:3000/materials">我的资料</a></li>
+        <li><a href="http://127.0.0.1:3000/history">答题记录</a></li>
+        <li><a href="/actuator/health">后端健康检查</a></li>
+    </ul>
+    <p>若 3000 无法打开，可在 <code>frontend/</code> 下执行 <code>npm run start</code>。</p>
+</main>
+</body>
+</html>

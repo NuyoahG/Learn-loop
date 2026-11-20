@@ -1,0 +1,17 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <!-- 独立滚动日志保留每轮出题阶段，重启和重试不会清空历史；30 天/100MB 有界保留。 -->
+    <appender name="GENERATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LEARNLOOP_DIAGNOSTICS_DIR:-run}/generation-diagnostics.log</file>
+        <encoder><pattern>%date{ISO8601,UTC} %msg%n</pattern></encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LEARNLOOP_DIAGNOSTICS_DIR:-run}/generation-diagnostics.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize><maxHistory>30</maxHistory><totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <logger name="com.learnloop.generation.GenerationDiagnostics" level="INFO" additivity="false">
+        <appender-ref ref="GENERATION"/>
+    </logger>
+    <root level="INFO"><appender-ref ref="CONSOLE"/></root>
+</configuration>

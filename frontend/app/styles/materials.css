@@ -1,0 +1,51 @@
+/* 只扩展资料页；沿用现有导航、身份栏和按钮，不重做原页面。 */
+.materials-page { max-width: 1220px; }
+.section-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.material-upload { margin: 12px 0 20px; padding: 20px; background: #f7f9fc; border: 1px solid #dce2e8; border-radius: 10px; }
+.material-upload h2, .section-toolbar h2 { margin: 0; }
+.upload-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 12px; background: white; }
+.upload-controls input { flex: 1; min-width: 170px; max-width: 100%; font: inherit; font-size: 14px; }
+.upload-controls label { font-weight: 600; }
+#uploadStatus { margin: 10px 0; min-height: 26px; overflow-wrap: anywhere; }
+.format-boundaries { color: #526276; font-size: 14px; }
+.format-boundaries summary { cursor: pointer; }
+.materials-workspace { display: grid; grid-template-columns: minmax(310px, 0.85fr) minmax(0, 1.15fr); gap: 28px; }
+.material-reader { padding-left: 24px; border-left: 1px solid #dce2e8; min-width: 0; }
+.material-reader > h2 { margin-top: 0; }
+.material-list { list-style: none; margin: 0; padding: 0; }
+.material-list li { margin-bottom: 10px; }
+.material-card { display: grid; gap: 7px; width: 100%; padding: 15px; text-align: left; color: #202936; text-decoration: none; background: white; border: 1px solid #dce2e8; border-radius: 8px; }
+.material-card:hover { background: #f7f9fc; }
+.material-manage { margin-top: 5px; padding: 3px 9px; font-size: 12px; }
+.material-manage[aria-pressed="true"] { border-color: #245ac2; background: #f0f5ff; }
+.material-card strong { overflow-wrap: anywhere; font-size: 15px; }
+.material-card small { color: #5d6875; font-size: 12px; }
+.material-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.material-badge { display: inline-block; width: fit-content; font-size: 12px; padding: 1px 7px; border-radius: 4px; color: #48586b; background: #edf0f5; }
+.material-badge[data-state="PARSED"] { background: #e9f4ee; color: #256140; }
+.material-badge[data-state="PARSING"] { background: #e9f0ff; color: #245ac2; }
+.material-badge[data-state="FAILED"] { background: #fff0e9; color: #8b3f18; }
+.warning-mark { color: #8b5718; font-size: 12px; }
+.materials-page .history-pagination { gap: 8px; font-size: 13px; }
+.materials-page .history-pagination button { padding: 6px 10px; font-size: 13px; }
+.section-toolbar button, .reader-actions button { padding: 6px 10px; font-size: 13px; }
+#materialName, #materialMeta, #materialAdvice, #detailStatus, #materialState { overflow-wrap: anywhere; }
+#materialName { margin: 12px 0 6px; }
+.material-warnings { padding-left: 22px; color: #785015; font-size: 14px; }
+.reader-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.reader-actions a { font-size: 13px; color: #245ac2; }
+.reader-actions .reader-entry { color: #fff; }
+.material-blocks { max-height: 660px; overflow-y: auto; }
+.material-block { margin-top: 16px; padding-top: 12px; border-top: 1px solid #dce2e8; }
+.material-block h4 { margin: 0; font-size: 14px; }
+.material-block .source { color: #5d6875; margin: 5px 0; font-size: 12px; }
+.material-block pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; font-size: 14px; padding: 12px; margin: 0; background: #f7f9fc; border-radius: 6px; tab-size: 4; }
+@media (max-width: 900px) {
+    .materials-workspace { grid-template-columns: 1fr; }
+    .material-reader { border-left: 0; border-top: 1px solid #dce2e8; padding: 22px 0 0; }
+}
+@media (max-width: 480px) {
+    .material-upload { padding: 14px; }
+    .materials-page { padding: 18px; }
+    .upload-controls { padding: 12px; }
+}
